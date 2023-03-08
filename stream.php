@@ -33,13 +33,13 @@ $callback = function ($ch, $data) {
 
 curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, FALSE);
 curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, FALSE);
-curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
+//curl_setopt($ch, CURLOPT_URL, 'https://api.openai.com/v1/chat/completions');
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 curl_setopt($ch, CURLOPT_POST, 1);
 curl_setopt($ch, CURLOPT_POSTFIELDS, $postData);
 curl_setopt($ch, CURLOPT_WRITEFUNCTION, $callback);
-//curl_setopt($ch, CURLOPT_PROXY, "http://127.0.0.1:1081");
+curl_setopt($ch, CURLOPT_PROXY, "http://127.0.0.1");
 
 curl_exec($ch);
 curl_close($ch);
